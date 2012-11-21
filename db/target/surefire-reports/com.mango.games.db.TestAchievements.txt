@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: com.mango.games.db.TestAchievements
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
+com.mango.games.db.TestAchievements.testObjectCreation()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:92)
+	at org.junit.Assert.assertTrue(Assert.java:43)
+	at org.junit.Assert.assertNotNull(Assert.java:526)
+	at org.junit.Assert.assertNotNull(Assert.java:537)
+	at com.mango.games.db.TestAchievements.testObjectCreation(TestAchievements.java:29)

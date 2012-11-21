@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.mysql</groupId>
+  <artifactId>jdbc</artifactId>
+  <versioning>
+    <release>5.0.8-bin</release>
+    <versions>
+      <version>5.0.8-bin</version>
+    </versions>
+    <lastUpdated>20121121091633</lastUpdated>
+  </versioning>
+</metadata>
