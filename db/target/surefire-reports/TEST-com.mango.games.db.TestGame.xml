@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="1" time="0.078" errors="0" skipped="0" tests="2" name="com.mango.games.db.TestGame">
+<testsuite failures="1" time="0.076" errors="0" skipped="0" tests="2" name="com.mango.games.db.TestGame">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64"/>
@@ -24,7 +24,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="os.name" value="Linux"/>
-    <property name="classworlds.conf" value="/home/kush/workspace/.metadata/.plugins/org.eclipse.m2e.core/launches/m2conf7702736102188490333.tmp"/>
+    <property name="classworlds.conf" value="/home/kush/workspace/.metadata/.plugins/org.eclipse.m2e.core/launches/m2conf6983807835645692238.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/server:/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64:/usr/lib/jvm/java-6-openjdk-amd64/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -58,16 +58,16 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.037" classname="com.mango.games.db.TestGame" name="com.mango.games.db.TestGame.testGame1"/>
+  <testcase time="0.036" classname="com.mango.games.db.TestGame" name="com.mango.games.db.TestGame.testGame1"/>
   <testcase time="0.04" classname="com.mango.games.db.TestGame" name="com.mango.games.db.TestGame.testGameById">
     <failure type="java.lang.NullPointerException">java.lang.NullPointerException
 	at com.mango.games.db.Game.getGameById(Game.java:176)
 	at com.mango.games.db.TestGame.testGameById(TestGame.java:44)
 </failure>
-    <system-out>INSERT INTO game (definitionid, prizeid, start_time, end_time) VALUES (&apos;2&apos;,&apos;2&apos;,&apos;2012-11-21 15:43:17&apos;,&apos;2012-11-21 15:43:17&apos;)
+    <system-out>INSERT INTO game (definitionid, prizeid, start_time, end_time) VALUES (&apos;2&apos;,&apos;2&apos;,&apos;2012-11-22 17:43:06&apos;,&apos;2012-11-22 17:43:06&apos;)
 SQL Exception Code : 1452
 SQL Exception Message : Cannot add or update a child row: a foreign key constraint fails (`default_schema`.`game`, CONSTRAINT `gamedef` FOREIGN KEY (`definitionid`) REFERENCES `mGamedefinition` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
-Game 2 Object : GAME: 0, 2, 2, 2012-11-21 15:43:17, 2012-11-21 15:43:17
+Game 2 Object : GAME: 0, 2, 2, 2012-11-22 17:43:06, 2012-11-22 17:43:06
 </system-out>
     <system-err>com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`default_schema`.`game`, CONSTRAINT `gamedef` FOREIGN KEY (`definitionid`) REFERENCES `mGamedefinition` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
 	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:931)

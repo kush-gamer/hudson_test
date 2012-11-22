@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="1" time="0.826" errors="0" skipped="0" tests="2" name="com.mango.games.db.TestGiftInventory">
+<testsuite failures="1" time="1.563" errors="0" skipped="0" tests="2" name="com.mango.games.db.TestGiftInventory">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64"/>
@@ -24,7 +24,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="os.name" value="Linux"/>
-    <property name="classworlds.conf" value="/home/kush/workspace/.metadata/.plugins/org.eclipse.m2e.core/launches/m2conf7702736102188490333.tmp"/>
+    <property name="classworlds.conf" value="/home/kush/workspace/.metadata/.plugins/org.eclipse.m2e.core/launches/m2conf6983807835645692238.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/server:/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64:/usr/lib/jvm/java-6-openjdk-amd64/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -58,7 +58,7 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.745" classname="com.mango.games.db.TestGiftInventory" name="com.mango.games.db.TestGiftInventory.testGetGiftInventoryByID">
+  <testcase time="1.553" classname="com.mango.games.db.TestGiftInventory" name="com.mango.games.db.TestGiftInventory.testGetGiftInventoryByID">
     <failure message="Non-serializable object" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Non-serializable object
 	at net.spy.memcached.transcoders.BaseSerializingTranscoder.serialize(BaseSerializingTranscoder.java:110)
 	at net.spy.memcached.transcoders.SerializingTranscoder.encode(SerializingTranscoder.java:162)
@@ -80,15 +80,15 @@ In get Server Disconnected
 Observer :  Connection Established !!!
 
 (Bone CP Pooling Class) should hav come only once...
-com.mango.games.db.GiftInventory@28ab54eb
+com.mango.games.db.GiftInventory@67eb366
 Cache Add Method (IsConnected) : true
 </system-out>
-    <system-err>2012-11-21 15:43:16.057 INFO net.spy.memcached.MemcachedConnection:  Added {QA sa=/127.0.0.1:11211, #Rops=0, #Wops=0, #iq=0, topRop=null, topWop=null, toWrite=0, interested=0} to connect queue
-2012-11-21 15:43:16.064 INFO net.spy.memcached.MemcachedConnection:  Connection state changed for sun.nio.ch.SelectionKeyImpl@375e9756
+    <system-err>2012-11-22 17:43:04.247 INFO net.spy.memcached.MemcachedConnection:  Added {QA sa=/127.0.0.1:11211, #Rops=0, #Wops=0, #iq=0, topRop=null, topWop=null, toWrite=0, interested=0} to connect queue
+2012-11-22 17:43:04.253 INFO net.spy.memcached.MemcachedConnection:  Connection state changed for sun.nio.ch.SelectionKeyImpl@46e45076
 SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 </system-err>
   </testcase>
-  <testcase time="0.079" classname="com.mango.games.db.TestGiftInventory" name="com.mango.games.db.TestGiftInventory.testGetGiftInventoryByFBID_GiftID"/>
+  <testcase time="0.008" classname="com.mango.games.db.TestGiftInventory" name="com.mango.games.db.TestGiftInventory.testGetGiftInventoryByFBID_GiftID"/>
 </testsuite>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="2" time="0.031" errors="0" skipped="0" tests="4" name="com.mango.games.db.TestPrize">
+<testsuite failures="2" time="0.041" errors="0" skipped="0" tests="4" name="com.mango.games.db.TestPrize">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64"/>
@@ -24,7 +24,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="os.name" value="Linux"/>
-    <property name="classworlds.conf" value="/home/kush/workspace/.metadata/.plugins/org.eclipse.m2e.core/launches/m2conf7702736102188490333.tmp"/>
+    <property name="classworlds.conf" value="/home/kush/workspace/.metadata/.plugins/org.eclipse.m2e.core/launches/m2conf6983807835645692238.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/server:/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64:/usr/lib/jvm/java-6-openjdk-amd64/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -58,9 +58,9 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.002" classname="com.mango.games.db.TestPrize" name="com.mango.games.db.TestPrize.testprize"/>
+  <testcase time="0.012" classname="com.mango.games.db.TestPrize" name="com.mango.games.db.TestPrize.testprize"/>
   <testcase time="0.004" classname="com.mango.games.db.TestPrize" name="com.mango.games.db.TestPrize.testPrize1"/>
-  <testcase time="0.006" classname="com.mango.games.db.TestPrize" name="com.mango.games.db.TestPrize.testPrizeById">
+  <testcase time="0.004" classname="com.mango.games.db.TestPrize" name="com.mango.games.db.TestPrize.testPrizeById">
     <failure type="java.lang.NullPointerException">java.lang.NullPointerException
 	at com.mango.games.db.Prize.getPrizebyID(Prize.java:121)
 	at com.mango.games.db.TestPrize.testPrizeById(TestPrize.java:45)
@@ -101,7 +101,7 @@ SQL Exception Message : Field &apos;id&apos; doesn&apos;t have a default value
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </system-err>
   </testcase>
-  <testcase time="0.018" classname="com.mango.games.db.TestPrize" name="com.mango.games.db.TestPrize.testPrizeById1">
+  <testcase time="0.021" classname="com.mango.games.db.TestPrize" name="com.mango.games.db.TestPrize.testPrizeById1">
     <failure type="java.lang.NullPointerException">java.lang.NullPointerException
 	at com.mango.games.db.Prize.getPrizebyID(Prize.java:121)
 	at com.mango.games.db.TestPrize.testPrizeById1(TestPrize.java:53)
