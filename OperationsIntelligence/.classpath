@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GamesDB"/>
+	<classpathentry kind="lib" path="lib/sfs2x-api.jar"/>
+	<classpathentry kind="lib" path="lib/sfs2x-client-core.jar"/>
+	<classpathentry kind="lib" path="lib/netty-3.2.2.Final.jar"/>
+	<classpathentry kind="lib" path="lib/jdom.jar"/>
+	<classpathentry kind="lib" path="lib/sfs2x-core.jar"/>
+	<classpathentry kind="lib" path="lib/sfs2x-util.jar"/>
+	<classpathentry kind="lib" path="lib/sfs2x.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,33 @@
+<!-- 
+	:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	SFS2X Client Configuration file
+	(c) 2009 gotoAndPlay
+	:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+-->
+
+
+<SmartFoxConfig>
+	<!-- Mandatory Settings -->
+	<ip>127.0.0.1</ip>
+    <udpIp>127.0.0.1</udpIp>
+	<port>9933</port>
+    <udpPort>9933</udpPort>
+	<zone>Rummy</zone>
+	<!-- End Mandatory Settings -->
+	
+	<debug>true</debug>
+	
+	<!-- For generic http port communication -->
+	<httpPort>8080</httpPort>
+	
+	<!-- 
+		BlueBox settings 
+		
+		useBlueBox: falls back to BlueBox if socket connection fails, default = true
+		blueBoxPollingRate: the polling interval between requests, default 700ms
+	-->
+	<useBlueBox>true</useBlueBox>
+	<blueBoxPollingRate></blueBoxPollingRate>
+	
+</SmartFoxConfig>

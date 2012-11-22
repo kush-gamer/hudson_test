@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="Test"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GameLogic"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GamesDB"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GameModel5"/>
+	<classpathentry kind="lib" path="/GameLogic/libs/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="/GameLogic/libs/org.eclipse.emf.common_2.8.0.v20120606-0717.jar"/>
+	<classpathentry kind="lib" path="/GameLogic/libs/org.eclipse.emf.ecore_2.8.0.v20120606-0717.jar"/>
+	<classpathentry kind="lib" path="/GameLogic/libs/sfs2x-core.jar"/>
+	<classpathentry kind="lib" path="/GameLogic/libs/sfs2x-util.jar"/>
+	<classpathentry kind="lib" path="/GameLogic/libs/sfs2x.jar"/>
+	<classpathentry kind="lib" path="/GameLogic/libs/slf4j-api-1.5.10.jar"/>
+	<classpathentry kind="lib" path="/GameLogic/libs/guice-3.0.jar"/>
+	<classpathentry kind="lib" path="/GameLogic/libs/guice-assistedinject-3.0.jar"/>
+	<classpathentry kind="lib" path="/GameLogic/libs/guice-multibindings-3.0.jar"/>
+	<classpathentry kind="lib" path="/GameLogic/libs/aopalliance.jar"/>
+	<classpathentry kind="lib" path="/GameLogic/libs/javax.inject.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

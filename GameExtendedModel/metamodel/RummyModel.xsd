@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- 
+Schema for in-memory data-model for online game of Rummy. The schema is used to generate the eCore, and subsequently the Model for game of rummy.
+ --><xsd:schema xmlns="http://" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:package="com.mangogames.rummy.model" targetNamespace="http://">		
+
+<xsd:complexType abstract="false" name="Card">
+    <xsd:attribute name="suit" type="xsd:int"/> 
+    <xsd:attribute name="rank" type="xsd:int"/> 
+</xsd:complexType>	
+<xsd:element name="card" type="Card"/>
+
+<xsd:complexType abstract="false" name="Joker">	
+	<xsd:complexContent>
+		<xsd:extension base="Card">
+		</xsd:extension>
+	</xsd:complexContent>
+</xsd:complexType>	
+<xsd:element name="joker" type="Joker"/>
+
+<xsd:complexType name="Prize">
+    	<xsd:attribute name="PrizeName" type="xsd:string"/>
+    	<xsd:attribute name="XP" type="xsd:string"/>
+    	<xsd:attribute name="Goodie" type="xsd:string"/>
+    	<xsd:attribute name="Currency" type="xsd:string"/>
+</xsd:complexType>
+<xsd:element name="prize" type="Prize"/>
+
+<xsd:complexType abstract="true" name="CardContainer">	
+    <xsd:sequence>
+		<xsd:element ecore:opposite="CardContainer" ecore:reference="cards" maxOccurs="unbounded" minOccurs="0" ref="card"/>
+	</xsd:sequence>
+</xsd:complexType>	
+
+<xsd:complexType abstract="false" name="OpenDeck">	
+	<xsd:complexContent>
+		<xsd:extension base="CardContainer">
+		</xsd:extension>
+	</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="opendeck" type="OpenDeck"/>		
+
+<xsd:complexType abstract="false" name="ClosedDeck">
+	<xsd:complexContent>
+		<xsd:extension base="CardContainer">
+		</xsd:extension>
+	</xsd:complexContent>	
+</xsd:complexType>
+<xsd:element name="closeddeck" type="ClosedDeck"/>	
+
+<xsd:complexType abstract="false" name="GroupCards"> <!-- a player groups cards in his/her hands -->
+	<xsd:complexContent>
+		<xsd:extension base="CardContainer">
+		</xsd:extension>
+	</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="groups" type="GroupCards"/>	
+
+<xsd:complexType abstract="false" name="HandCards">	<!--  Each player will have handcards -->
+	<xsd:sequence>
+		<xsd:element ecore:opposite="HandCards" ecore:reference="groups" maxOccurs="7" minOccurs="1" ref="groups"/>
+	</xsd:sequence>
+</xsd:complexType>	
+<xsd:element name="handcards" type="HandCards"/>	
+
+	<xsd:complexType abstract="false" name="User">
+		<xsd:attribute name="id" type="xsd:long"/>
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute default="1" name="source" type="xsd:int"/>
+		<xsd:attribute name="uid_src" type="xsd:string"/>
+		<xsd:attribute name="xp" type="xsd:int"/>
+		<xsd:attribute name="level" type="xsd:int"/>
+
+		<xsd:attribute name="chips" type="xsd:int"/>
+
+	</xsd:complexType>
+	<xsd:element name="user" type="User"/>
+
+
+	<xsd:complexType abstract="false" name="Player">
+		<xsd:complexContent>
+			<xsd:extension base="User">
+				<xsd:attribute name="type" type="xsd:int" default="0"></xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="player" type="Player"/>
+	
+<!--  should we use seat. Should a player have a seat-no, or create a seat obj and have player contained in it. -->
+<xsd:complexType abstract="false" name="Seat">
+	<xsd:sequence>
+			<xsd:element ecore:opposite="Seat" ecore:reference="player" maxOccurs="1" minOccurs="0" ref="player"/>
+	</xsd:sequence>
+	<xsd:attribute name="seat_id" type="xsd:int" use="required"/>
+</xsd:complexType>		
+<xsd:element name="seat" type="Seat"/>
+
+<xsd:complexType abstract="false" name="Score">
+     <xsd:attribute default="-1" name="score" type="xsd:int"/>
+     <xsd:attribute default="1" name="dealnum" type="xsd:long"/>
+</xsd:complexType>
+<xsd:element name="score" type="Score"/>
+
+<!--  settlements: after the match, the calculated scores, xp, other aspects are kept here
+      for display in scoreboard and for persisting to the DB.
+ -->
+<xsd:complexType abstract="false" name="Settlement">
+     <xsd:attribute default="0" name="totalScore" type="xsd:int"/>
+     <xsd:attribute default="0" name="xp" type="xsd:int"/>
+     <xsd:attribute default="0" name="level" type="xsd:int"/>
+     <xsd:attribute default="0" name="chips" type="xsd:int"/>
+</xsd:complexType>
+<xsd:element name="settlement" type="Settlement"/>
+
+<!-- Match player is a list of players playing a match. Not all seated players may be match players -->
+	<xsd:complexType abstract="false" name="MatchPlayer">
+		<xsd:complexContent>
+			<xsd:extension base="Player">
+				<xsd:sequence>
+					<xsd:element maxOccurs="5" minOccurs="1" ref="score"/>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="settlement"/>
+				</xsd:sequence>
+				<xsd:attribute default="1" name="state" type="xsd:int"/>
+				<!-- default = playing -->
+				<xsd:attribute name="toss_rank" type="xsd:int"/>
+				<!-- rank assigned to player after toss -->
+
+				<xsd:attribute name="time_of_joining" type="xsd:dateTime"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="matchplayer" type="MatchPlayer"/>
+
+<!-- Deal Player is a list of players currently playing a deal. Not all match players are deal players -->
+	<xsd:complexType abstract="false" name="DealPlayer">
+		<xsd:complexContent>
+			<xsd:extension base="Player">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" ref="handcards"/>
+					<xsd:element maxOccurs="1" minOccurs="0" ref="score"/>
+				</xsd:sequence>
+				<xsd:attribute default="1" name="state" type="xsd:int"/>
+				<!-- default = playing -->
+
+				<xsd:attribute name="time_of_joining" type="xsd:string"/>
+				<xsd:attribute name="missed_turn_count" type="xsd:int"/>
+
+				<xsd:attribute default="false" name="winner" type="xsd:boolean"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="dealplayer" type="DealPlayer"/>
+
+	<xsd:complexType abstract="false" name="Deal">
+		<xsd:sequence>
+			<xsd:element ecore:opposite="Deal" ecore:reference="livePlayers" maxOccurs="5" minOccurs="2" ref="dealplayer"/>
+			<xsd:element ecore:opposite="Deal" ecore:reference="openDeck" maxOccurs="1" minOccurs="1" ref="opendeck"/>
+			<xsd:element ecore:opposite="Deal" ecore:reference="closedDeck" maxOccurs="1" minOccurs="1" ref="closeddeck"/>
+			<xsd:element ecore:opposite="Deal" ecore:reference="joker" maxOccurs="1" minOccurs="1" ref="joker"/>
+		</xsd:sequence>
+
+		<xsd:attribute name="deal_number" type="xsd:int"/>
+		<xsd:attribute name="current_turn" type="xsd:int"/>
+		<xsd:attribute name="show_initiator" type="xsd:long"/>
+	</xsd:complexType>
+	<xsd:element name="deal" type="Deal"/>
+
+	<xsd:complexType abstract="false" name="Match">
+		<xsd:sequence>
+			<xsd:element ecore:opposite="Match" ecore:reference="players" maxOccurs="5" minOccurs="2" ref="matchplayer"/>
+			<xsd:element ecore:opposite="Match" maxOccurs="1" minOccurs="1" ref="deal"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:long"/>
+		<xsd:attribute default="0" name="deal_count" type="xsd:int"/>
+		<xsd:attribute default="-1" name="last_start_turn" type="xsd:int"/>
+	</xsd:complexType>
+	<xsd:element name="match" type="Match"/>	
+
+	<xsd:complexType abstract="true" name="Game">
+		<xsd:sequence>
+			<xsd:element ecore:opposite="Game" ecore:reference="seats" maxOccurs="5" minOccurs="2" ref="seat"/>
+			<xsd:element ecore:opposite="Game" maxOccurs="1" minOccurs="1" ref="match"/>
+			<xsd:element ecore:opposite="Game" ecore:reference="users" maxOccurs="unbounded" minOccurs="0" ref="user"/>
+
+			<xsd:element ecore:opposite="Game" ecore:reference="reward" maxOccurs="1" minOccurs="1" ref="prize"/>
+		</xsd:sequence>
+
+		<xsd:attribute name="id" type="xsd:long"/>
+
+		<xsd:attribute name="dynamic" type="xsd:boolean"/>
+		<xsd:attribute default="5" name="max_players" type="xsd:int"/>
+		<xsd:attribute name="max_spectators" type="xsd:int"/>
+		<xsd:attribute name="entry_fee" type="xsd:decimal"/>
+		<xsd:attribute name="rake" type="xsd:float"/>
+		<xsd:attribute name="owner" type="xsd:string"/>
+		<xsd:attribute default="2" name="min_players_required" type="xsd:int"/>
+
+		<xsd:attribute name="max_score" type="xsd:int"/>
+		<xsd:attribute name="type" type="xsd:int"/>
+		<xsd:attribute name="pot_value" type="xsd:int"/>
+	</xsd:complexType>
+	<xsd:element name="game" type="Game"/>	
+
+<!--  Add annotations that define the restrictions for pool game...example: 1 match etc. -->
+<xsd:complexType abstract="false" name="SyndicateGame">	
+	<xsd:complexContent>
+		<xsd:extension base="Game">
+		</xsd:extension>
+	</xsd:complexContent>
+</xsd:complexType>	
+<xsd:element name="syndicategame" type="SyndicateGame"/>	
+
+<xsd:complexType abstract="false" name="TestGame">	
+	<xsd:complexContent>
+		<xsd:extension base="Game">
+		</xsd:extension>
+	</xsd:complexContent>
+</xsd:complexType>	
+<xsd:element name="testgame" type="TestGame"/>	
+
+<!--  Add annotations that define the restrictions for pool game...example: 1 match etc. -->
+<xsd:complexType abstract="false" name="PointsGame">	
+	<xsd:complexContent>
+		<xsd:extension base="Game">
+		</xsd:extension>
+	</xsd:complexContent>
+</xsd:complexType>	
+<xsd:element name="pointsgame" type="PointsGame"/>	
+
+<!--  Add annotations that define the restrictions for pool game...example: 1 match etc. -->
+<xsd:complexType abstract="false" name="PokerRummyGame">	
+	<xsd:complexContent>
+		<xsd:extension base="PointsGame">
+		</xsd:extension>
+	</xsd:complexContent>
+</xsd:complexType>	
+<xsd:element name="pokerrummygame" type="PokerRummyGame"/>	
+
+<!--  Add annotations that define the restrictions for pool game...example: 1 match etc. -->
+<xsd:complexType abstract="false" name="FixedPrizeGame">	
+	<xsd:complexContent>
+		<xsd:extension base="PointsGame">
+		</xsd:extension>
+	</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="fixedprizegame" type="FixedPrizeGame"/>	
+
+<xsd:complexType abstract="true" name="My">
+  <xsd:annotation>
+    <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+       <operation name="isInstance" type="ecore:EBoolean">
+           <parameter name="object" type="ecore:EJavaObject"/>
+       </operation>
+       <operation name="getClassifierID" type="ecore:EInt"/>
+    </xsd:appinfo>
+ </xsd:annotation>
+</xsd:complexType>
+
+ <xsd:complexType name="BotInfo">
+ 	<xsd:sequence>
+ 		<xsd:element name="NewElement" type="xsd:string"/>
+ 	</xsd:sequence>
+ 	<xsd:attribute name="bot_id" type="xsd:int"/>
+ 	<xsd:attribute name="source_id" type="xsd:string"/>
+ 	<xsd:attribute name="gender" type="xsd:string"/>
+ 	<xsd:attribute name="name" type="xsd:string"/>
+ 	<xsd:attribute name="email" type="xsd:string"/>
+ 	<xsd:attribute name="dob" type="xsd:string"/>
+ 	<xsd:attribute name="location" type="xsd:string"/>
+ 	<xsd:attribute name="engaged" type="xsd:boolean"/>
+ 	<xsd:attribute name="room_id" type="xsd:string"/>
+ </xsd:complexType>
+ <xsd:element name="botinfo" type="BotInfo"/>
+ 
+ <xsd:complexType abstract="false" name="BotPlayer">
+		<xsd:complexContent>
+			<xsd:extension base="Player"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="botPlayer" type="BotPlayer"/>
+  
+</xsd:schema>
