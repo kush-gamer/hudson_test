@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.mango.games.db.TestPrize
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec <<< FAILURE!
+com.mango.games.db.TestPrize.testPrizeById()  Time elapsed: 0.004 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.mango.games.db.Prize.getPrizebyID(Prize.java:120)
+	at com.mango.games.db.TestPrize.testPrizeById(TestPrize.java:45)
+com.mango.games.db.TestPrize.testPrizeById1()  Time elapsed: 0.03 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.mango.games.db.Prize.getPrizebyID(Prize.java:120)
+	at com.mango.games.db.TestPrize.testPrizeById1(TestPrize.java:53)

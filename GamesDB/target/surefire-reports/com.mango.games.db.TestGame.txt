@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.mango.games.db.TestGame
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.091 sec <<< FAILURE!
+com.mango.games.db.TestGame.testGameById()  Time elapsed: 0.04 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.mango.games.db.Game.getGameById(Game.java:175)
+	at com.mango.games.db.TestGame.testGameById(TestGame.java:44)
