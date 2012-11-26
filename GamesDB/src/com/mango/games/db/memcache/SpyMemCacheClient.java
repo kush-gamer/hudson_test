@@ -114,7 +114,7 @@ public class SpyMemCacheClient
 	{
 		observer = new ConnectionObserver() {
 			
-			//@Override
+			@Override
 			/*
 			 * When Converted to Maven Project 
 			 * Override Annotation showed an error
@@ -126,7 +126,7 @@ public class SpyMemCacheClient
 				System.out.println("Observer : Connection Lost !!!");
 			}
 			
-			//@Override
+			@Override
 			/*
 			 * When Converted to Maven Project
 			 * Override Annotation was removed
